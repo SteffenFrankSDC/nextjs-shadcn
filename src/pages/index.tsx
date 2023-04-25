@@ -78,73 +78,71 @@ const Content: React.FC = () => {
   console.log({ notes, topics, selectedTopic });
 
   return (
-    <div className="m-5">
+    <div className="p-5">
 
-      <div className="mt-4 w-[200px]">
+      <Tabs
+        id="topics"
+        orientation="vertical"
+        activationMode="manual"
+        value={selectedTopic?.id}
+        onValueChange={
+          (id) => setSelectedTopic(topics?.find(topic => topic.id === id) ?? null)
+        }>
 
-        <Label htmlFor="topic-input" scale="lg" className="font-bold">
-          New Topic
-        </Label>
-        <Input
-          id="topic-input"
-          type="text"
-          onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
-            if (e.key === "Enter") {
-              createTopic.mutate({
-                title: e.currentTarget.value,
-              });
-              e.currentTarget.value = "";
-            }
-          }} />
-        <Label htmlFor="topic-input" scale="xs">
-          ENTER to create new topic
-        </Label>
-      </div>
+        <TabsList className="w-fit-content max-w-[200px]">
+          <Label htmlFor="topics" scale="lg" className="font-bold mb-2">Topics</Label>
+          {topics?.map((topic: Topic) => (
+            <TabsTrigger key={topic.id} value={topic.id}>
+              {topic.title}
+            </TabsTrigger>
+          ))}
 
-      <Separator orientation="horizontal" className="my-4 w-full" />
+          <Separator orientation="horizontal" scale="lg" />
 
-      <div>
-        <Label htmlFor="topics" scale="lg" className="font-bold">Topics</Label>
-
-        <Tabs
-          id="topics"
-          orientation="vertical"
-          activationMode="manual"
-          value={selectedTopic?.id}
-          onValueChange={
-            (id) => setSelectedTopic(topics?.find(topic => topic.id === id) ?? null)
-          }>
-          <TabsList className="w-fit-content max-w-[200px]">
-            {topics?.map((topic: Topic) => (
-              <TabsTrigger key={topic.id} value={topic.id}>
-                {topic.title}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-
-          <div className="p-2 flex-1 flex flex-col gap-2">
-            {notes?.map((note) => (
-              <div key={note.id}>
-                <NoteCard
-                  note={note}
-                  onDelete={() => void deleteNote.mutate({ id: note.id })}
-                />
-              </div>
-            ))}
-
-            <NoteEditor
-              onSave={({ title, content }) => {
-                void createNote.mutate({
-                  title,
-                  content,
-                  topicId: selectedTopic?.id ?? "",
-                });
-              }}
-            />
+          <div className="w-full">
+            <Label htmlFor="topic-input" className="font-bold">
+              New Topic
+            </Label>
+            <Input
+              id="topic-input"
+              type="text"
+              onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+                if (e.key === "Enter") {
+                  createTopic.mutate({
+                    title: e.currentTarget.value,
+                  });
+                  e.currentTarget.value = "";
+                }
+              }} />
+            <Label htmlFor="topic-input" scale="xs">
+              ENTER to create new topic
+            </Label>
           </div>
-        </Tabs>
 
-      </div>
+        </TabsList>
+
+        <div className="p-2 flex-1 flex flex-col gap-2">
+          {notes?.map((note) => (
+            <div key={note.id}>
+              <NoteCard
+                note={note}
+                onDelete={() => void deleteNote.mutate({ id: note.id })}
+              />
+            </div>
+          ))}
+
+          <NoteEditor
+            onSave={({ title, content }) => {
+              void createNote.mutate({
+                title,
+                content,
+                topicId: selectedTopic?.id ?? "",
+              });
+            }}
+          />
+        </div>
+      </Tabs>
+
     </div>
   );
 };

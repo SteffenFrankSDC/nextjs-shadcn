@@ -16,9 +16,9 @@ const separatorVariants = cva(
       },
       scale: {
         xs: "data-[orientation=horizontal]:my-1 data-[orientation=vertical]:mx-1",
-        sm: "data-[orientation=horizontal]:my-2 data-[orientation=vertical]:mx-2",
-        md: "data-[orientation=horizontal]:my-3 data-[orientation=vertical]:mx-4",
-        lg: "data-[orientation=horizontal]:my-4 data-[orientation=vertical]:mx-8",
+        sm: "data-[orientation=horizontal]:my-3 data-[orientation=vertical]:mx-3",
+        md: "data-[orientation=horizontal]:my-5 data-[orientation=vertical]:mx-5",
+        lg: "data-[orientation=horizontal]:my-10 data-[orientation=vertical]:mx-10",
       },
     },
   }
