@@ -114,7 +114,7 @@ const Content: React.FC = () => {
           onValueChange={
             (id) => setSelectedTopic(topics?.find(topic => topic.id === id) ?? null)
           }>
-          <TabsList scale="lg" className="w-[200px]">
+          <TabsList className="w-fit-content max-w-[200px]">
             {topics?.map((topic: Topic) => (
               <TabsTrigger key={topic.id} value={topic.id}>
                 {topic.title}
@@ -122,7 +122,7 @@ const Content: React.FC = () => {
             ))}
           </TabsList>
 
-          <div className="bg-muted p-2 flex-1 flex flex-col gap-2">
+          <div className="p-2 flex-1 flex flex-col gap-2">
             {notes?.map((note) => (
               <div key={note.id}>
                 <NoteCard
