@@ -10,16 +10,17 @@ const separatorVariants = cva(
   "shrink-0 bg-border",
   {
     variants: {
-      orientation: {
-        horizontal: "h-[1px] w-full",
-        vertical: "w-[1px] h-full"
-      },
       scale: {
-        xs: "data-[orientation=horizontal]:my-1 data-[orientation=vertical]:mx-1",
-        sm: "data-[orientation=horizontal]:my-3 data-[orientation=vertical]:mx-3",
-        md: "data-[orientation=horizontal]:my-5 data-[orientation=vertical]:mx-5",
-        lg: "data-[orientation=horizontal]:my-10 data-[orientation=vertical]:mx-10",
+        xs: "[--separator-margin:.25rem] [--separator-stroke-width:1px]",
+        sm: "[--separator-margin:.5rem] [--separator-stroke-width:1px]",
+        md: "[--separator-margin:.75rem] [--separator-stroke-width:1px]",
+        lg: "[--separator-margin:1.25rem] [--separator-stroke-width:2px]",
       },
+      orientation: {
+        horizontal: "h-[var(--separator-stroke-width)] my-[var(--separator-margin)] w-full",
+        vertical: "w-[--separator-stroke-width] mx-[--separator-margin] h-full"
+      },
+
     },
   }
 )
