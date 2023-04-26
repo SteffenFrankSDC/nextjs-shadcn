@@ -5,7 +5,7 @@ import { Textarea } from "./ui/textarea";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "./ui/card";
 
 export const NoteEditor = ({
-  onSave,
+  onSave, ...args
 }: {
   onSave: (note: { title: string; content: string }) => void;
 }) => {
@@ -13,7 +13,7 @@ export const NoteEditor = ({
   const [title, setTitle] = useState<string>("");
 
   return (
-    <Card>
+    <Card {...args}>
       <CardHeader>
         <CardTitle>
           <Input
@@ -35,6 +35,7 @@ export const NoteEditor = ({
       </CardContent>
       <CardFooter className="flex justify-end">
         <Button
+          semantics="primary"
           onPointerDown={() => {
             onSave({
               title,

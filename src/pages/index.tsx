@@ -90,7 +90,7 @@ const Content: React.FC = () => {
         }>
 
         <TabsList className="w-fit-content max-w-[200px]">
-          <Label htmlFor="topics" scale="lg" className="font-bold mb-2">Topics</Label>
+          <Label htmlFor="topics" scale="lg" className="mb-2">Topics</Label>
           {topics?.map((topic: Topic) => (
             <TabsTrigger key={topic.id} value={topic.id}>
               {topic.title}
@@ -100,7 +100,7 @@ const Content: React.FC = () => {
           <Separator orientation="horizontal" scale="lg" />
 
           <div className="w-full">
-            <Label htmlFor="topic-input" className="font-bold">
+            <Label htmlFor="topic-input" >
               New Topic
             </Label>
             <Input
@@ -121,7 +121,10 @@ const Content: React.FC = () => {
 
         </TabsList>
 
-        <div className="p-2 flex-1 flex flex-col gap-2">
+
+
+        <div id="notes" className="p-2 flex-1 flex flex-col gap-2">
+          {((notes?.length ?? 0) > 0) && <Label scale="lg" htmlFor="notes">Notes</Label>}
           {notes?.map((note) => (
             <div key={note.id}>
               <NoteCard
@@ -131,15 +134,18 @@ const Content: React.FC = () => {
             </div>
           ))}
 
-          <NoteEditor
-            onSave={({ title, content }) => {
-              void createNote.mutate({
-                title,
-                content,
-                topicId: selectedTopic?.id ?? "",
-              });
-            }}
-          />
+          <Label htmlFor="note-editor" scale="lg">Write a new note</Label>
+          <div id="note-editor">
+            <NoteEditor
+              onSave={({ title, content }) => {
+                void createNote.mutate({
+                  title,
+                  content,
+                  topicId: selectedTopic?.id ?? "",
+                });
+              }}
+            />
+          </div>
         </div>
       </Tabs>
 
