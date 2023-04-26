@@ -22,7 +22,7 @@ export const AppHeader = () => {
     const { data: sessionData } = useSession();
 
     return (
-        <div className="flex flex-1 flex-row items-center justify-between bg-primary text-primary-foreground px-5 py-2">
+        <div className="dark bg-background text-foreground flex flex-1 flex-row items-center justify-between px-5 py-2">
             <div className="text-xl font-bold">
                 {sessionData?.user?.name ? `Notes for ${sessionData.user.name}` : ""}
             </div>
