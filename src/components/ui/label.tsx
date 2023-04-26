@@ -11,10 +11,13 @@ const labelVariants = cva(
   {
     variants: {
       semantics: {
+        default: "text-foreground",
         primary: "text-primary",
-        secondary: "text-primary font-light",
+        secondary: "text-secondary",
+        muted: "text-muted-foreground",
         accent: "text-accent",
-        destructive: "text-destructive font-light"
+        destructive: "text-destructive",
+        error: "text-destructive font-light"
       },
       scale: {
         xs: "text-xs font-light",
@@ -24,7 +27,7 @@ const labelVariants = cva(
       }
     },
     defaultVariants: {
-      semantics: "primary",
+      semantics: "default",
       scale: "md"
     }
   }
