@@ -124,7 +124,7 @@ const Content: React.FC = () => {
 
 
         <div id="notes" className="p-2 flex-1 flex flex-col gap-2">
-          {((notes?.length ?? 0) > 0) && <Label scale="lg" htmlFor="notes">Notes</Label>}
+          {((notes?.length ?? 0) > 0) && <Label scale="lg" htmlFor="notes">{selectedTopic?.title} notes</Label>}
           {notes?.map((note) => (
             <div key={note.id}>
               <NoteCard
