@@ -7,18 +7,19 @@ const buttonVariants = cva(
   "inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background",
   {
     variants: {
-      variant: {
-        block: "",
-        outline:
-          "border border-input",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "underline-offset-4 hover:underline text-primary",
-      },
+
       semantics: {
-        primary: "",
-        secondary: "",
-        accent: "",
-        destructive: "",
+        primary: "[--semantics-bg:hsl(var(--primary))] [--semantics-fg:hsl(var(--primary-foreground))]",
+        secondary: "[--semantics-bg:hsl(var(--secondary))] [--semantics-fg:hsl(var(--secondary-foreground))]",
+        accent: "[--semantics-bg:hsl(var(--accent))] [--semantics-fg:hsl(var(--accent-foreground))]",
+        destructive: "[--semantics-bg:hsl(var(--destructive))] [--semantics-fg:hsl(var(--destructive-foreground))]",
+      },
+
+      variant: {
+        block: "bg-[--semantics-bg] text-[--semantics-fg] hover:brightness-95",
+        outline: "border border-input border-[--semantics-bg] hover:bg-[--semantics-bg] hover:text-[--semantics-fg]",
+        ghost: "hover:bg-[--semantics-bg] hover:text-[--semantics-fg]",
+        link: "underline-offset-4 hover:underline text-foreground",
       },
       scale: {
         xs: "h-4 px-1 text-xs rounded-xs",
@@ -27,64 +28,10 @@ const buttonVariants = cva(
         lg: "h-12 px-8 text-md rounded-lg",
       },
     },
-    compoundVariants: [
-      // block variants
-      {
-        variant: "block", semantics: "primary",
-        class: 'bg-primary text-primary-foreground hover:brightness-95'
-      },
-      {
-        variant: "block", semantics: "secondary",
-        class: 'bg-secondary text-secondary-foreground hover:brightness-95'
-      },
-      {
-        variant: "block", semantics: "accent",
-        class: 'bg-accent text-accent-foreground hover:hover:brightness-95'
-      },
-      {
-        variant: "block", semantics: "destructive",
-        class: 'bg-destructive text-destructive-foreground hover:brightness-95'
-      },
 
-      // outline variants
-      {
-        variant: "outline", semantics: "primary",
-        class: 'border-primary hover:bg-primary hover:text-primary-foreground'
-      },
-      {
-        variant: "outline", semantics: "secondary",
-        class: 'border-secondary hover:bg-secondary hover:text-secondary-foreground'
-      },
-      {
-        variant: "outline", semantics: "accent",
-        class: 'border-accent hover:bg-accent hover:text-accent-foreground'
-      },
-      {
-        variant: "outline", semantics: "destructive",
-        class: 'border-destructive hover:bg-destructive hover:text-destructive-foreground'
-      },
-
-      // ghost variants
-      {
-        variant: "ghost", semantics: "primary",
-        class: 'hover:bg-primary hover:text-primary-foreground'
-      },
-      {
-        variant: "ghost", semantics: "secondary",
-        class: 'hover:bg-secondary hover:text-secondary-foreground'
-      },
-      {
-        variant: "ghost", semantics: "accent",
-        class: 'hover:bg-accent hover:text-accent-foreground'
-      },
-      {
-        variant: "ghost", semantics: "destructive",
-        class: 'hover:bg-destructive hover:text-destructive-foreground'
-      },
-    ],
     defaultVariants: {
+      semantics: "secondary",
       variant: "block",
-      semantics: "primary",
       scale: "md",
     },
   }
