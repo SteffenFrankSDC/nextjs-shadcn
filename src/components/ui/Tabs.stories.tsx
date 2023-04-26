@@ -15,12 +15,16 @@ export const Root: TabsStory = {
             <TabsList>
                 <TabsTrigger value="account" >Account</TabsTrigger>
                 <TabsTrigger value="password">Password</TabsTrigger>
+                <TabsTrigger value="disabled" disabled>Disabled</TabsTrigger>
             </TabsList >
             <TabsContent value="account" className='m-1'>
                 Account Content
             </TabsContent>
             <TabsContent value="password" className='m-1'>
                 Password Content
+            </TabsContent>
+            <TabsContent value="disabled" className='m-1'>
+                Disabled Content - should not be selectable
             </TabsContent>
         </Tabs >,
     args: { className: "w-[400px]", orientation: "horizontal" },
@@ -31,8 +35,9 @@ export const HorizontalTabsList: TabsListStory = {
         <TabsList {...args}>
             <TabsTrigger value="account" >Account</TabsTrigger>
             <TabsTrigger value="password">Password</TabsTrigger>
+            <TabsTrigger value="disabled" disabled>Disabled</TabsTrigger>
         </TabsList >,
-    args: { scale: "md" },
+    args: { scale: "md", semantics: "default", variant: "border" },
     decorators: [
         Story =>
             <Tabs orientation="horizontal" defaultValue="account" className="w-fit">
@@ -43,6 +48,9 @@ export const HorizontalTabsList: TabsListStory = {
                 <TabsContent value="password" className='m-1'>
                     Password Content
                 </TabsContent>
+                <TabsContent value="disabled" className='m-1'>
+                    Disabled Content - should not be selectable
+                </TabsContent>
             </Tabs>,
     ]
 };
@@ -52,8 +60,9 @@ export const VarticalTabsList: TabsListStory = {
         <TabsList {...args}>
             <TabsTrigger value="account" >Account</TabsTrigger>
             <TabsTrigger value="password">Password</TabsTrigger>
+            <TabsTrigger value="disabled" disabled>Disabled</TabsTrigger>
         </TabsList >,
-    args: { scale: "md" },
+    args: { scale: "md", semantics: "default", variant: "border" },
     decorators: [
         Story =>
             <Tabs orientation="vertical" defaultValue="account" className="w-fit">
@@ -63,6 +72,9 @@ export const VarticalTabsList: TabsListStory = {
                 </TabsContent>
                 <TabsContent value="password" className='m-1'>
                     Password Content
+                </TabsContent>
+                <TabsContent value="disabled" className='m-1'>
+                    Disabled Content - should not be selectable
                 </TabsContent>
             </Tabs>
     ]
