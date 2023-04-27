@@ -1,10 +1,11 @@
 import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
+
     return (
-        <Html data-theme="corporate">
+        <Html>
             <Head />
-            <body className="bg-muted">
+            <body className="bg-muted dark:dark">
                 <Main />
                 <NextScript />
             </body>

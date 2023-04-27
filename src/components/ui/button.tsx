@@ -9,10 +9,11 @@ const buttonVariants = cva(
     variants: {
 
       semantics: {
-        primary: "[--semantics-bg:hsl(var(--primary))] [--semantics-fg:hsl(var(--primary-foreground))]",
-        secondary: "[--semantics-bg:hsl(var(--secondary))] [--semantics-fg:hsl(var(--secondary-foreground))]",
-        accent: "[--semantics-bg:hsl(var(--accent))] [--semantics-fg:hsl(var(--accent-foreground))]",
-        destructive: "[--semantics-bg:hsl(var(--destructive))] [--semantics-fg:hsl(var(--destructive-foreground))]",
+        default: "[--semantics-bg:rgb(var(--muted-foreground))] [--semantics-fg:rgb(var(--muted))]",
+        primary: "[--semantics-bg:rgb(var(--primary))] [--semantics-fg:rgb(var(--primary-foreground))]",
+        secondary: "[--semantics-bg:rgb(var(--secondary))] [--semantics-fg:rgb(var(--secondary-foreground))]",
+        accent: "[--semantics-bg:rgb(var(--accent))] [--semantics-fg:rgb(var(--accent-foreground))]",
+        destructive: "[--semantics-bg:rgb(var(--destructive))] [--semantics-fg:rgb(var(--destructive-foreground))]",
       },
 
       variant: {
@@ -30,7 +31,7 @@ const buttonVariants = cva(
     },
 
     defaultVariants: {
-      semantics: "secondary",
+      semantics: "default",
       variant: "block",
       scale: "md",
     },

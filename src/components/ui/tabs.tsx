@@ -35,7 +35,7 @@ const tabsListVariants = cva(
         destructive: "[--semantics-color:var(--destructive)]",
       },
       variant: {
-        border: "[--inactive-color:hsl(var(--semantics-color)/20%)]",
+        border: "[--inactive-color:rgb(var(--semantics-color)/20%)]",
         ghost: "[--inactive-color:transparent]"
       }
     },
@@ -73,8 +73,8 @@ const TabsTrigger = React.forwardRef<
     className={cn(
       "rounded-sm px-3 py-1.5 font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:text-muted-foreground/50",
       "data-[state=active]:text-foreground",
-      "data-[orientation=horizontal]:whitespace-nowrap data-[orientation=horizontal]:border-b-2 data-[orientation=horizontal]:data-[state=active]:border-b-[color:hsl(var(--semantics-color))] data-[orientation=horizontal]:data-[state=inactive]:border-b-[--inactive-color]",
-      "data-[orientation=vertical]:text-left data-[orientation=vertical]:border-l-2 data-[orientation=vertical]:data-[state=active]:border-l-[color:hsl(var(--semantics-color))] data-[orientation=vertical]:data-[state=inactive]:border-l-[--inactive-color]",
+      "data-[orientation=horizontal]:whitespace-nowrap data-[orientation=horizontal]:border-b-2 data-[orientation=horizontal]:data-[state=active]:border-b-[color:rgb(var(--semantics-color))] data-[orientation=horizontal]:data-[state=inactive]:border-b-[--inactive-color]",
+      "data-[orientation=vertical]:text-left data-[orientation=vertical]:border-l-2 data-[orientation=vertical]:data-[state=active]:border-l-[color:rgb(var(--semantics-color))] data-[orientation=vertical]:data-[state=inactive]:border-l-[--inactive-color]",
       className
     )}
     {...props}
