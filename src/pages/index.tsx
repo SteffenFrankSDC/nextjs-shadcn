@@ -89,7 +89,7 @@ const Content: React.FC = () => {
           (id) => setSelectedTopic(topics?.find(topic => topic.id === id) ?? null)
         }>
 
-        <TabsList className="w-fit-content max-w-[200px]">
+        <TabsList semantics="primary" className="w-fit-content max-w-[200px]">
           <Label htmlFor="topics" scale="lg" className="mb-2">Topics</Label>
           {topics?.map((topic: Topic) => (
             <TabsTrigger key={topic.id} value={topic.id}>
@@ -97,9 +97,7 @@ const Content: React.FC = () => {
             </TabsTrigger>
           ))}
 
-          <Separator orientation="horizontal" scale="lg" />
-
-          <div className="w-full">
+          <div className="w-full mt-8">
             <Label htmlFor="topic-input" >
               New Topic
             </Label>
@@ -122,33 +120,35 @@ const Content: React.FC = () => {
         </TabsList>
 
 
+        <div className="m-2 ml-4 w-full">
+          <div id="notes" className="flex-1 flex flex-col gap-2">
+            {((notes?.length ?? 0) > 0) && <Label scale="lg" htmlFor="notes">{selectedTopic?.title} notes</Label>}
+            {notes?.map((note) => (
+              <div key={note.id}>
+                <NoteCard
+                  note={note}
+                  onDelete={() => void deleteNote.mutate({ id: note.id })}
+                />
+              </div>
+            ))}
 
-        <div id="notes" className="p-2 flex-1 flex flex-col gap-2">
-          {((notes?.length ?? 0) > 0) && <Label scale="lg" htmlFor="notes">{selectedTopic?.title} notes</Label>}
-          {notes?.map((note) => (
-            <div key={note.id}>
-              <NoteCard
-                note={note}
-                onDelete={() => void deleteNote.mutate({ id: note.id })}
+            {((notes?.length ?? 0) > 0) && <Separator orientation="horizontal" />}
+
+            <Label htmlFor="note-editor" scale="lg">Write a new note</Label>
+            <div id="note-editor">
+              <NoteEditor
+                onSave={({ title, content }) => {
+                  void createNote.mutate({
+                    title,
+                    content,
+                    topicId: selectedTopic?.id ?? "",
+                  });
+                }}
               />
             </div>
-          ))}
-
-          <Label htmlFor="note-editor" scale="lg">Write a new note</Label>
-          <div id="note-editor">
-            <NoteEditor
-              onSave={({ title, content }) => {
-                void createNote.mutate({
-                  title,
-                  content,
-                  topicId: selectedTopic?.id ?? "",
-                });
-              }}
-            />
           </div>
         </div>
       </Tabs>
-
     </div>
   );
 };

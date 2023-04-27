@@ -6,35 +6,131 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 204 8% 24%;
+    /* https://uicolors.app/edit?sv1=vui-red:50-fff0f0/100-ffddde/200-ffc1c2/300-ff9597/400-ff595c/500-ff2529/600-f20206/700-d50004/800-b00407/900-910b0d/950-500001;vui-blue:50-eff9ff/100-def2ff/200-b6e7ff/300-76d4ff/400-2ec0ff/500-02a6f2/600-0086d2/700-006baa/800-005a8c/900-074a73/950-04304d;vui-green:50-e8ffe4/100-ccffc6/200-9cff93/300-5dff54/400-28fa21/500-05f402/600-00b403/700-038806/800-096b0c/900-0d5a11/950-003304 */
 
-    --muted: 0 0% 97%;
-    --muted-foreground: 204 8% 64%;
+    /* VAIDR UI green, HSL 199/98/48 */
+    --vui-green-50: 232 255 228;
+    --vui-green-100: 204 255 198;
+    --vui-green-200: 156 255 147;
+    --vui-green-300: 93 255 84;
+    --vui-green-400: 40 250 33;
+    --vui-green-500: 5 244 2;
+    --vui-green-600: 0 180 3;
+    --vui-green-700: 3 136 6;
+    --vui-green-800: 9 107 12;
+    --vui-green-900: 13 90 17;
+    --vui-green-950: 0 51 4;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 204 8% 24%;
+    /* VAIDR UI blue H+120 */
+    --vui-blue-50: 241 245 255;
+    --vui-blue-100: 229 235 255;
+    --vui-blue-200: 206 216 255;
+    --vui-blue-300: 166 181 255;
+    --vui-blue-400: 116 133 255;
+    --vui-blue-500: 61 74 255;
+    --vui-blue-600: 22 25 255;
+    --vui-blue-700: 2 6 242;
+    --vui-blue-800: 3 7 212;
+    --vui-blue-900: 5 7 173;
+    --vui-blue-950: 0 7 118;
 
-    --card: 0 0% 100%;
-    --card-foreground: 204 8% 24%;
+    /* VAIDR UI red H+240*/
+    --vui-red-50: 255 240 240;
+    --vui-red-100: 255 221 222;
+    --vui-red-200: 255 193 194;
+    --vui-red-300: 255 149 151;
+    --vui-red-400: 255 89 92;
+    --vui-red-500: 255 37 41;
+    --vui-red-600: 242 2 6;
+    --vui-red-700: 213 0 4;
+    --vui-red-800: 176 4 7;
+    --vui-red-900: 145 11 13;
+    --vui-red-950: 80 0 1;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
+    /* in-between colors*/
 
-    /* --primary: 204 8% 24%; */
-    --primary: 210 97% 48%;
-    --primary-foreground: 0 0% 97%;
+    /* violet */
+    --vui-violet-50: 255 242 255;
+    --vui-violet-100: 255 227 254;
+    --vui-violet-200: 255 198 254;
+    --vui-violet-300: 255 154 249;
+    --vui-violet-400: 255 94 243;
+    --vui-violet-500: 255 35 247;
+    --vui-violet-600: 238 2 242;
+    --vui-violet-700: 206 0 206;
+    --vui-violet-800: 168 0 165;
+    --vui-violet-900: 136 7 131;
+    --vui-violet-950: 93 0 89;
 
-    --secondary: 0 0% 92%;
-    --secondary-foreground: 204 8% 24%;
+    /* aqua */
+    --vui-aqua-50: 237 255 254;
+    --vui-aqua-100: 192 255 255;
+    --vui-aqua-200: 130 254 255;
+    --vui-aqua-300: 60 253 255;
+    --vui-aqua-400: 2 242 238;
+    --vui-aqua-500: 0 224 221;
+    --vui-aqua-600: 0 179 181;
+    --vui-aqua-700: 0 139 143;
+    --vui-aqua-800: 0 109 113;
+    --vui-aqua-900: 5 89 92;
+    --vui-aqua-950: 0 54 58;
 
-    --accent: 119 97% 48%;
-    --accent-foreground: 204 8% 24%;
+    /* yellow */
+    --vui-yellow-50: 253 255 231;
+    --vui-yellow-100: 246 255 193;
+    --vui-yellow-200: 241 255 135;
+    --vui-yellow-300: 240 255 66;
+    --vui-yellow-400: 248 255 15;
+    --vui-yellow-500: 242 238 2;
+    --vui-yellow-600: 207 187 0;
+    --vui-yellow-700: 165 136 3;
+    --vui-yellow-800: 136 105 11;
+    --vui-yellow-900: 116 86 15;
+    --vui-yellow-950: 68 47 4;
 
-    --destructive: 0 100% 50%;
-    --destructive-foreground: 0 0% 97%;
+    /* VAIDR UI grey */
+    --vui-gray-50: 244 247 247;
+    --vui-gray-100: 227 232 234;
+    --vui-gray-200: 203 212 214;
+    --vui-gray-300: 167 181 185;
+    --vui-gray-400: 123 143 149;
+    --vui-gray-500: 96 115 122;
+    --vui-gray-600: 82 97 104;
+    --vui-gray-700: 71 82 87;
+    --vui-gray-800: 63 70 75;
+    --vui-gray-900: 56 62 66;
+    --vui-gray-950: 34 39 42;
 
-    --ring: 215 20.2% 65.1%;
+    /* END */
+
+    --background: 255 255 255;
+    --foreground: var(--vui-gray-900);
+
+    --muted: var(--vui-gray-50);
+    --muted-foreground: var(--vui-gray-700);
+
+    --popover: 255 255 255;
+    --popover-foreground: var(--vui-gray-900);
+
+    --card: 255 255 255;
+    --card-foreground: var(--vui-gray-900);
+
+    --border: var(--vui-gray-100);
+    --input: var(--vui-gray-200);
+
+    --primary: var(--vui-green-600);
+    --primary-foreground: var(--vui-gray-50);
+
+    --secondary: var(--vui-gray-200);
+    --secondary-foreground: var(--vui-gray-900);
+
+    --accent: var(--vui-green-500);
+    --accent-foreground: var(--vui-gray-950);
+
+    --destructive: var(--vui-red-600);
+    --destructive-foreground: var(--vui-gray-50);
+
+    --ring: var(--vui-gray-500);
 
     --radius: 0.2rem;
 
@@ -42,32 +138,34 @@
   }
 
   .dark {
-    --background: 224 71% 4%;
-    --foreground: 213 31% 91%;
+    --background: var(--vui-gray-900);
+    --foreground: var(--vui-gray-50);
 
-    --muted: 223 47% 11%;
-    --muted-foreground: 215.4 16.3% 56.9%;
+    --muted: var(--vui-gray-800);
+    --muted-foreground: var(--vui-gray-200);
 
-    --popover: 224 71% 4%;
-    --popover-foreground: 215 20.2% 65.1%;
+    --popover: var(--vui-gray-950);
+    --popover-foreground: var(--vui-gray-50);
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 47.4% 11.2%;
+    --card: var(--vui-gray-950);
+    --card-foreground: var(--vui-gray-50);
 
-    --border: 216 34% 17%;
-    --input: 216 34% 17%;
+    --border: var(--vui-gray-600);
+    --input: var(--vui-gray-500);
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 1.2%;
+    --primary: var(--vui-green-600);
+    --primary-foreground: var(--vui-gray-50);
 
-    --secondary: 222.2 47.4% 11.2%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: var(--vui-gray-400);
+    --secondary-foreground: var(--vui-gray-50);
 
-    --accent: 216 34% 17%;
-    --accent-foreground: 210 40% 98%;
+    --accent: var(--vui-green-500);
+    --accent-foreground: var(--vui-gray-900);
 
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: var(--vui-red-700);
+    --destructive-foreground: var(--vui-gray-50);
+
+    --ring: var(--vui-gray-400);
   }
 }
 
