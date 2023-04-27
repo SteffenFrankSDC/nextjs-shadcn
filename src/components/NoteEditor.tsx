@@ -35,7 +35,7 @@ export const NoteEditor = ({
       </CardContent>
       <CardFooter className="flex justify-end">
         <Button
-          semantics="default"
+          semantics="primary"
           onPointerDown={() => {
             onSave({
               title,

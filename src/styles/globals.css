@@ -121,8 +121,8 @@
     --primary: var(--vui-green-600);
     --primary-foreground: var(--vui-gray-50);
 
-    --secondary: var(--vui-gray-200);
-    --secondary-foreground: var(--vui-gray-900);
+    --secondary: var(--vui-gray-500);
+    --secondary-foreground: var(--vui-gray-50);
 
     --accent: var(--vui-green-500);
     --accent-foreground: var(--vui-gray-950);
@@ -142,7 +142,7 @@
     --foreground: var(--vui-gray-50);
 
     --muted: var(--vui-gray-800);
-    --muted-foreground: var(--vui-gray-200);
+    --muted-foreground: var(--vui-gray-300);
 
     --popover: var(--vui-gray-950);
     --popover-foreground: var(--vui-gray-50);
