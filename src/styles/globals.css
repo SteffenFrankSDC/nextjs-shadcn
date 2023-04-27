@@ -108,28 +108,45 @@
 
     --muted: var(--vui-gray-50);
     --muted-foreground: var(--vui-gray-700);
+    --muted: var(--vui-gray-50);
+    --muted-foreground: var(--vui-gray-700);
 
+    --popover: 255 255 255;
+    --popover-foreground: var(--vui-gray-900);
     --popover: 255 255 255;
     --popover-foreground: var(--vui-gray-900);
 
     --card: 255 255 255;
     --card-foreground: var(--vui-gray-900);
+    --card: 255 255 255;
+    --card-foreground: var(--vui-gray-900);
 
+    --border: var(--vui-gray-100);
+    --input: var(--vui-gray-200);
     --border: var(--vui-gray-100);
     --input: var(--vui-gray-200);
 
     --primary: var(--vui-green-600);
     --primary-foreground: var(--vui-gray-50);
+    --primary: var(--vui-green-600);
+    --primary-foreground: var(--vui-gray-50);
 
+    --secondary: var(--vui-gray-200);
+    --secondary-foreground: var(--vui-gray-900);
     --secondary: var(--vui-gray-200);
     --secondary-foreground: var(--vui-gray-900);
 
     --accent: var(--vui-green-500);
     --accent-foreground: var(--vui-gray-950);
+    --accent: var(--vui-green-500);
+    --accent-foreground: var(--vui-gray-950);
 
     --destructive: var(--vui-red-600);
     --destructive-foreground: var(--vui-gray-50);
+    --destructive: var(--vui-red-600);
+    --destructive-foreground: var(--vui-gray-50);
 
+    --ring: var(--vui-gray-500);
     --ring: var(--vui-gray-500);
 
     --radius: 0.2rem;
@@ -143,10 +160,19 @@
 
     --muted: var(--vui-gray-800);
     --muted-foreground: var(--vui-gray-200);
+    --background: var(--vui-gray-900);
+    --foreground: var(--vui-gray-50);
+
+    --muted: var(--vui-gray-800);
+    --muted-foreground: var(--vui-gray-200);
 
     --popover: var(--vui-gray-950);
     --popover-foreground: var(--vui-gray-50);
+    --popover: var(--vui-gray-950);
+    --popover-foreground: var(--vui-gray-50);
 
+    --card: var(--vui-gray-950);
+    --card-foreground: var(--vui-gray-50);
     --card: var(--vui-gray-950);
     --card-foreground: var(--vui-gray-50);
 
@@ -176,5 +202,11 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    html {
+      @apply: dark;
+    }
   }
 }
